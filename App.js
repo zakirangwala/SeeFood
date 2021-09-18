@@ -47,21 +47,23 @@ export default function App() {
 
   return (
     <View style={styles.container}>
-      <Camera style={styles.camera} type={type}>
+      <Camera style={styles.camera} type={type} onBarCodeScanned={(obj) => {
+        console.log(obj["data"]);
+      }}>
       </Camera>
+{/* 
       <View style={styles.buttonContainer}>
           <TouchableOpacity
             style={styles.button}
             onPress={() => {
-              setType(
-                type === Camera.Constants.Type.back
-                  ? Camera.Constants.Type.front
-                  : Camera.Constants.Type.back
-              );
+              //picture = await Camera
+              
+
             }}>
              <Entypo name="circle" size={72} color="white" />
           </TouchableOpacity>
         </View>
+         */}
     </View>
   );
 }
