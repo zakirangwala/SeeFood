@@ -27,6 +27,8 @@
     },
     "web": {
       "favicon": "./assets/favicon.png"
-    }
+    },
+    "description": "SeeFood is a game-changing app that helps people better understand what they eat and follow their diet by providing useful information about food ingredients.\n",
+    "githubUrl": "https://github.com/ZakiRangwala/SeeFood"
   }
 }
