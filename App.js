@@ -8,6 +8,8 @@ import HomeScreen from './src/screens/HomeScreen';
 import CameraScreen from './src/screens/CameraScreen';
 import SettingsScreen from './src/screens/SettingsScreen';
 import { Ionicons } from '@expo/vector-icons';
+import { useFonts, Inter_900Black } from '@expo-google-fonts/inter';
+// import { useFonts } from 'expo-font';
 //import firebase from 'firebase/app';
 
 //firebase services
@@ -33,6 +35,14 @@ import { Ionicons } from '@expo/vector-icons';
 const Tab = createBottomTabNavigator();
 
 export default function App() {
+  // const [loaded] = useFonts({
+  //   Inter: require('./assets/fonts/Inter.ttf')
+  // })
+
+  let [fontsLoaded] = useFonts({
+    Inter_900Black,
+  });
+
   return(
     <NavigationContainer>
       <Tab.Navigator screenOptions={({ route }) => ({
