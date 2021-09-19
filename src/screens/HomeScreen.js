@@ -14,13 +14,13 @@ export default function HomeScreen(){
             <View style={styles.row}>
                 <Image source={vegan} style={{ width: 80, height: 80 }}/>
                 <View style={styles.gap}></View>
-                <Text style={styles.paragraph}>
-                Set your diet and preferences on the Settings Page
+                <Text style={styles.paragraph_right}>
+                  Set your diet and preferences in the settings
                 </Text>
             </View>
             <View style={styles.row}>
-                <Text style={styles.paragraph}>
-                Scan the barcode of your food
+                <Text style={styles.paragraph_left}>
+                  Scan the barcode of your food
                 </Text>
                 <View style={styles.gap}></View>
                 <Image source={barcode} style={{ width: 80, height: 80 }}/>
@@ -28,8 +28,8 @@ export default function HomeScreen(){
             <View style={styles.row}>
                 <Image source={diet} style={{ width: 80, height: 80 }}/>
                 <View style={styles.gap}></View>
-                <Text style={styles.paragraph}>
-                Find foods that fit your diet
+                <Text style={styles.paragraph_right}>
+                  Find foods that fit your diet
                 </Text>
             </View>
         <StatusBar style="dark" />
@@ -40,7 +40,7 @@ export default function HomeScreen(){
 const styles = StyleSheet.create({
     container: {
       flex: 1,
-      paddingHorizontal: 20,
+      paddingHorizontal: 30,
       backgroundColor: 'white',
     },
     title: {
@@ -49,22 +49,31 @@ const styles = StyleSheet.create({
       color: 'black',
       paddingVertical:30
     },
-    paragraph: {
+    paragraph_left: {
       fontSize: 18,
-      paddingLeft: 10,
-      paddingRight: 70,
+      paddingRight: 50,
       color: 'black',
+      fontWeight: 'normal',
       flex: 1
     },
+    paragraph_right: {
+      fontSize: 18,
+      paddingLeft: 50,
+      color: 'black',
+      fontWeight: 'normal',
+      flex: 1,
+      textAlign: 'right'
+    }
+    ,
     row: {
         flexDirection: 'row', 
         justifyContent: "space-between", 
         alignItems:"center",
-        paddingTop: 25,
-        paddingBottom: 25,
+        paddingTop: 30,
+        paddingBottom: 30,
         marginHorizontal: 10
     },
     gap: {
-        width: 30
+        width: 40
     }
   });
