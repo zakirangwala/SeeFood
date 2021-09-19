@@ -1,14 +1,12 @@
 //import { StatusBar } from 'expo-status-bar';
 import React from 'react';
 import { NavigationContainer } from '@react-navigation/native';
-import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 
 //screens
-import ScannerScreen from './src/screens/ScannerScreen';
-import ResultsScreen from './src/screens/ResultsScreen';
+import CameraScreen from './src/screens/CameraScreen';
 import SettingsScreen from './src/screens/SettingsScreen';
-
-//import { Entypo } from '@expo/vector-icons';
+import { Ionicons } from '@expo/vector-icons';
 //import firebase from 'firebase/app';
 
 //firebase services
@@ -31,16 +29,33 @@ import SettingsScreen from './src/screens/SettingsScreen';
 
 //firebase.initializeApp(firebaseConfig);
 
-const Stack = createNativeStackNavigator();
+const Tab = createBottomTabNavigator();
 
 export default function App() {
   return(
     <NavigationContainer>
-      <Stack.Navigator initialRouteName="Scanner">
-        <Stack.Screen name="Scanner" component={ScannerScreen} />
-        <Stack.Screen name="Results" component={ResultsScreen} />
-        <Stack.Screen name="Settings" component={SettingsScreen} />
-      </Stack.Navigator>
+      <Tab.Navigator screenOptions={({ route }) => ({
+          tabBarIcon: ({ focused, color, size }) => {
+            let iconName;
+
+            if (route.name === 'Camera') {
+              iconName = focused
+                ? 'md-scan-circle'
+                : 'md-scan-circle-outline';
+            } else if (route.name === 'Settings') {
+              iconName = focused ? 'settings' : 'settings-outline';
+            }
+
+            return <Ionicons name={iconName} size={40} color={color} />;
+          },
+          tabBarActiveTintColor: 'tomato',
+          tabBarInactiveTintColor: 'gray',
+          headerShown: false,
+          tabBarShowLabel: false,
+        })}>
+        <Tab.Screen name="Camera" component={CameraScreen} />
+        <Tab.Screen name="Settings" component={SettingsScreen} />
+      </Tab.Navigator>
     </NavigationContainer>
   );
 }

@@ -54,7 +54,7 @@ export default function ScannerScreen({navigation}){
     },
     camera: {
       width: '100%',
-      height: '70%',
+      height: '100%',
     },
     buttonContainer:{
       marginTop: 40,
