@@ -19,10 +19,12 @@ SeeFood is a game changing app that helps people better understand what they eat
 
 ## Demo Application
 
-- If you are on Android, Use the Expo Client App (Expo Go) and scan this QR code:
+Use the Expo Client App (Expo Go) and scan this QR code:
 <p align="center">
   <img width="250" height="250" src="utils/qr_code.png" alt="Expo Demo Code" >
 </p>
+
+\* Note : Demo may not work on iOS devices, in that case, clone the repository (git clone https://github.com/ZakiRangwala/SeeFood.git) > install dependencies (npm i) > run server (npm start) > (scan QR code and run on expo app)
 
 ## Preview
 
