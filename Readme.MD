@@ -1,7 +1,7 @@
 # SeeFood
 
 <p align="center">
-  <img width="470" height="176" src="assets/logo.png" alt="Logo">
+  <img src="utils/logo.png" alt="Logo">
 </p>
 
 By Albert Lai, Zaki Rangwala, and Aryaan Bhimani for Hack the North 2021.
@@ -19,30 +19,35 @@ SeeFood is a game changing app that helps people better understand what they eat
 
 ## Demo Application
 
-Using Expo Client App (Expo Go) and scan this QR code:
-
+- If you are on Android, Use the Expo Client App (Expo Go) and scan this QR code:
 <p align="center">
-  <img width="250" height="250" src="assets/qr_code.png" alt="Expo Demo Code" >
+  <img width="250" height="250" src="utils/qr_code.png" alt="Expo Demo Code" >
 </p>
 
 ## Preview
 
 How the App should work!
 
-### Home Screen
+### Home Page (Learn How to Use App)
 
 <p align="center">
-<img width="300" height="649" src="assets/home_page.jpeg" alt="Home Page" >
+<img width="300" height="567" src="utils/home_page.png" alt="Home Page" >
 </p>
 
-### Scan barcode of food item
+### Settings page (Select your dietary preferences)
 
 <p align="center">
-<img width="300" height="649" src="assets/scan_food.png" alt="Scan Page" >
+<img width="300" height="567" src="utils/settings_page.png" alt="Home Page" >
 </p>
 
-### Get Ingredients and Dietary Restrictions Information
+### Camera Page (Scan Barcode of Food Item)
 
 <p align="center">
-<img width="300" height="649" src="assets/result_page.png" alt="Result Page" >
+<img width="300" height="567" src="utils/scan_food.png" alt="Scan Page" >
+</p>
+
+### Results Page (Get Ingredients and Allergens Information)
+
+<p align="center">
+<img width="300" height="567" src="utils/result_page.png" alt="Result Page" >
 </p>
