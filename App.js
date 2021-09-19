@@ -2,8 +2,11 @@
 import React from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
+
+//screens
 import ScannerScreen from './src/screens/ScannerScreen';
 import ResultsScreen from './src/screens/ResultsScreen';
+import SettingsScreen from './src/screens/SettingsScreen';
 
 //import { Entypo } from '@expo/vector-icons';
 //import firebase from 'firebase/app';
@@ -36,6 +39,7 @@ export default function App() {
       <Stack.Navigator initialRouteName="Scanner">
         <Stack.Screen name="Scanner" component={ScannerScreen} />
         <Stack.Screen name="Results" component={ResultsScreen} />
+        <Stack.Screen name="Settings" component={SettingsScreen} />
       </Stack.Navigator>
     </NavigationContainer>
   );
