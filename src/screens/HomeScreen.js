@@ -40,7 +40,7 @@ export default function HomeScreen(){
 const styles = StyleSheet.create({
     container: {
       flex: 1,
-      paddingHorizontal: 30,
+      paddingHorizontal: 35,
       backgroundColor: 'white',
     },
     title: {
