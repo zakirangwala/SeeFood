@@ -12,7 +12,7 @@ export default function HomeScreen(){
             Get help following your diet
             </Text>
             <View style={styles.row}>
-                <Image source={vegan} style={{ width: 100, height: 100 }}/>
+                <Image source={vegan} style={{ width: 80, height: 80 }}/>
                 <View style={styles.gap}></View>
                 <Text style={styles.paragraph}>
                 Set your diet and preferences on the Settings Page
@@ -23,10 +23,10 @@ export default function HomeScreen(){
                 Scan the barcode of your food
                 </Text>
                 <View style={styles.gap}></View>
-                <Image source={barcode} style={{ width: 100, height: 100 }}/>
+                <Image source={barcode} style={{ width: 80, height: 80 }}/>
             </View>
             <View style={styles.row}>
-                <Image source={diet} style={{ width: 100, height: 100 }}/>
+                <Image source={diet} style={{ width: 80, height: 80 }}/>
                 <View style={styles.gap}></View>
                 <Text style={styles.paragraph}>
                 Find foods that fit your diet
@@ -44,13 +44,15 @@ const styles = StyleSheet.create({
       backgroundColor: 'white',
     },
     title: {
-      fontSize: 36,
+      fontSize: 34,
       fontWeight: 'bold',
       color: 'black',
       paddingVertical:30
     },
     paragraph: {
-      fontSize: 22,
+      fontSize: 18,
+      paddingLeft: 10,
+      paddingRight: 70,
       color: 'black',
       flex: 1
     },
@@ -58,7 +60,8 @@ const styles = StyleSheet.create({
         flexDirection: 'row', 
         justifyContent: "space-between", 
         alignItems:"center",
-        paddingBottom:50,
+        paddingTop: 25,
+        paddingBottom: 25,
         marginHorizontal: 10
     },
     gap: {
