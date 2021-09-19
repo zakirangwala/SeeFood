@@ -20,7 +20,7 @@ export default function HomeScreen(){
             </View>
             <View style={styles.row}>
                 <Text style={styles.paragraph}>
-                Scan the barcode of your food
+                Scan the barcode of your food items
                 </Text>
                 <View style={styles.gap}></View>
                 <Image source={barcode} style={{ width: 100, height: 100 }}/>
