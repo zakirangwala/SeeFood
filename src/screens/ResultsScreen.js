@@ -13,15 +13,19 @@ export default function ResultsScreen({ route, navigation }) {
       )}`;
       console.log("Fetching Data from API...");
       let res = await axios.get(url);
-      console.log(await res["status"]);
-      setResponse(await res);
+      console.log(res.request);
+      console.log(res.status);
+      // setResponse(res);
     }
     fetchData(barcode);
   }, []);
 
+  // console.log(response.data.status_verbose);
+
   return (
     <View style={{ flex: 1, alignItems: "center", justifyContent: "center" }}>
       <Text>{barcode}</Text>
+      {/* <Text>{response.data.product.brands}</Text> */}
     </View>
   );
 }
