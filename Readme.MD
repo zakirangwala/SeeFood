@@ -1,7 +1,7 @@
 # SeeFood
 
 <p align="center">
-  <img width="470" height="176" src="assets/logo.png" alt="Logo">
+  <img width="470" height="176" src="utils/logo.png" alt="Logo">
 </p>
 
 By Albert Lai, Zaki Rangwala, and Aryaan Bhimani for Hack the North 2021.
@@ -33,6 +33,12 @@ How the App should work!
 
 <p align="center">
 <img width="300" height="567" src="utils/home_page.png" alt="Home Page" >
+</p>
+
+### Select your dietary preferences
+
+<p align="center">
+<img width="300" height="567" src="utils/settings_page.png" alt="Home Page" >
 </p>
 
 ### Scan barcode of food item

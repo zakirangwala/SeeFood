@@ -2,12 +2,12 @@
   "expo": {
     "name": "SeeFood",
     "slug": "SeeFood",
-    "owner": "zakirangwala-test",
     "version": "1.0.0",
+    "privacy": "public",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
     "splash": {
-      "image": "./assets/splash.png",
+      "image": "./assets/icon.png",
       "resizeMode": "contain",
       "backgroundColor": "#ffffff"
     },
@@ -22,12 +22,12 @@
     },
     "android": {
       "adaptiveIcon": {
-        "foregroundImage": "./assets/adaptive-icon.png",
+        "foregroundImage": "./assets/icon.png",
         "backgroundColor": "#FFFFFF"
       }
     },
     "web": {
-      "favicon": "./assets/favicon.png"
+      "favicon": "./assets/icon.png"
     },
     "description": "SeeFood is a game-changing app that helps people better understand what they eat and follow their diet by providing useful information about food ingredients.\n",
     "githubUrl": "https://github.com/ZakiRangwala/SeeFood"
