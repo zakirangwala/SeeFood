@@ -1,6 +1,7 @@
 import { Camera } from 'expo-camera';
 import React, {useState,useEffect} from 'react';
 import { StyleSheet, Text, View } from 'react-native';
+import { BarCodeScanner } from 'expo-barcode-scanner';
 
 export default function ScannerScreen({navigation}){
     //camera permissions
@@ -24,7 +25,12 @@ export default function ScannerScreen({navigation}){
   
     return (
       <View style={styles.container}>
-        <Camera style={styles.camera} type={type} onBarCodeScanned={(obj) => {
+        <Camera style={styles.camera} type={type} 
+
+        barCodeScannerSettings={{
+          barCodeTypes: [BarCodeScanner.Constants.BarCodeType.ean13],
+        }}
+        onBarCodeScanned={(obj) => {
           navigation.navigate('Results',{barcode: obj["data"]});
         }}>
         </Camera>
