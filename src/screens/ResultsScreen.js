@@ -3,29 +3,56 @@ import { StyleSheet, Text, View } from "react-native";
 
 export default function ResultsScreen({ route, navigation }) {
   const { barcode } = route.params;
-  const [response, setResponse] = useState();
+  const [response, setResponse] = useState(null);
+  const axios = require("axios");
 
   useEffect(() => {
     async function fetchData(code) {
-      const axios = require("axios");
-      const url = `https://world.openfoodfacts.org/api/v0/product/${encodeURIComponent(
-        JSON.stringify(code)
-      )}`;
       console.log("Fetching Data from API...");
-      let res = await axios.get(url);
+      const res = await axios.get(
+        `https://world.openfoodfacts.org/api/v0/product/${encodeURIComponent(
+          JSON.stringify(barcode)
+        )}`
+      );
       console.log(res.request);
       console.log(res.status);
-      // setResponse(res);
+      if ((res.data.status = 1)) {
+        console.log(res.data.code);
+      }
+      setResponse(res);
     }
     fetchData(barcode);
   }, []);
 
-  // console.log(response.data.status_verbose);
-
   return (
-    <View style={{ flex: 1, alignItems: "center", justifyContent: "center" }}>
+    <View style={styles.container}>
       <Text>{barcode}</Text>
-      {/* <Text>{response.data.product.brands}</Text> */}
+      {response && (
+        <Text>
+          {response.data.product.brands} {response.data.product.product_name}
+        </Text>
+      )}
+      {/* {response.data.product.ingredients_text && (
+        <Text>{response.data.product.ingredients_text}</Text>
+      )} */}
     </View>
   );
 }
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    alignItems: 'center',
+    justifyContent: 'center',
+    backgroundColor: 'white',
+  },
+  camera: {
+    width: '100%',
+    height: '100%',
+  },
+  buttonContainer:{
+    marginTop: 40,
+  },
+  button:{},
+  text:{}
+});
