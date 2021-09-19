@@ -31,6 +31,19 @@ function App() {
           }}
           src={logo}
         />
+        <p
+          style={{
+            display: "block",
+            paddingTop: "15px",
+            marginLeft: "auto",
+            marginRight: "auto",
+            width: "20%",
+            textAlign: "center",
+            color: "red",
+          }}
+        >
+          Use the Expo Client App (Expo Go) and scan this QR code:
+        </p>
         <a href="https://github.com/ZakiRangwala/SeeFood">
           <div
             style={{
