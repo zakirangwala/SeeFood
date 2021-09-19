@@ -19,7 +19,7 @@ export default function HomeScreen(){
                 </Text>
             </View>
             <View style={styles.row}>
-                <Text style={styles.paragraph}>
+                <Text style={styles.paragraph_left}>
                 Scan the barcode of your food items
                 </Text>
                 <View style={styles.gap}></View>
