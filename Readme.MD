@@ -22,7 +22,7 @@ SeeFood is a game changing app that helps people better understand what they eat
 Using Expo Client App (Expo Go) and scan this QR code:
 
 <p align="center">
-  <img width="250" height="250" src="assets/qr_code.png" alt="Expo Demo Code" >
+  <img width="250" height="250" src="utils/qr_code.png" alt="Expo Demo Code" >
 </p>
 
 ## Preview
@@ -32,17 +32,17 @@ How the App should work!
 ### Home Screen
 
 <p align="center">
-<img width="300" height="649" src="assets/home_page.jpeg" alt="Home Page" >
+<img width="300" height="649" src="utils/home_page.png" alt="Home Page" >
 </p>
 
 ### Scan barcode of food item
 
 <p align="center">
-<img width="300" height="649" src="assets/scan_food.png" alt="Scan Page" >
+<img width="300" height="649" src="utils/scan_food.png" alt="Scan Page" >
 </p>
 
 ### Get Ingredients and Dietary Restrictions Information
 
 <p align="center">
-<img width="300" height="649" src="assets/result_page.png" alt="Result Page" >
+<img width="300" height="649" src="utils/result_page.png" alt="Result Page" >
 </p>
