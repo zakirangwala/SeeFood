@@ -63,8 +63,7 @@ const styles = StyleSheet.create({
       fontWeight: 'normal',
       flex: 1,
       textAlign: 'right'
-    }
-    ,
+    },
     row: {
         flexDirection: 'row', 
         justifyContent: "space-between", 

@@ -8,6 +8,9 @@ export default function ResultsScreen({ route, navigation }) {
   const [brand, setBrand] = useState(null);
   const [name, setName] = useState(null);
   const [category, setCategory] = useState(null);
+  const [vegan, setVegan] = useState(null);
+  const [vegetarian, setVegetarian] = useState(null);
+  const [glutenFree, setGlutenFree] = useState(null);
 
   const axios = require("axios");
 
@@ -25,6 +28,34 @@ export default function ResultsScreen({ route, navigation }) {
         console.log(res.data.code);
         setResponse(res);
         if ("product" in res.data) {
+          if ("ingredients" in res.data.product){
+            var veganCheck = true;
+            var vegeterianCheck = true; 
+            var ingredientsList = res.data.product.ingredients;
+
+            for(var i=0;i<ingredientsList.length;i++){
+              if(ingredientsList[i].vegan === "no"){
+                veganCheck = false;
+                break;
+              }
+            }
+            for(var i=0;i<ingredientsList.length;i++){
+              if(ingredientsList[i].vegetarian === "no"){
+                vegeterianCheck = false;
+                break;
+              }
+            }
+            setVegan(veganCheck.toString());
+            setVegetarian(vegeterianCheck.toString());
+          }
+          if("allergens" in res.data.product){
+            if(res.data.product.allergens.includes("gluten")){
+              setGlutenFree(false.toString());
+            }
+            else{
+              setGlutenFree(true.toString());
+            }
+          }
           if ("ingredients_text" in res.data.product) {
             setIngredient(" " + res.data.product.ingredients_text);
           }
@@ -51,14 +82,18 @@ export default function ResultsScreen({ route, navigation }) {
           {brand} {name}
         </Text>
       )}
-      {/* {category && <Text>{category}</Text>}
-      {ingredient && <Text> {ingredient}</Text>} */}
-      <Image
+      {/* {category && <Text>{category}</Text>} */}
+      {ingredient && <Text> {ingredient}</Text>}
+
+      {vegan && <Text> {vegan}</Text>}
+      {vegetarian && <Text> {vegetarian}</Text>}
+      {glutenFree && <Text> {glutenFree}</Text>}
+      {/* <Image
         source={{
           uri: "https://static.wikia.nocookie.net/silicon-valley/images/4/49/Jian_Yang.jpg/revision/latest?cb=20210105194213",
         }}
         style={{ width: 400, height: 400 }}
-      />
+      /> */}
     </View>
   );
 }
