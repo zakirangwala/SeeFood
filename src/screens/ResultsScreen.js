@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { StyleSheet, Text, View } from "react-native";
+import { StyleSheet, Text, View, Image } from "react-native";
 
 export default function ResultsScreen({ route, navigation }) {
   const { barcode } = route.params;
@@ -7,6 +7,7 @@ export default function ResultsScreen({ route, navigation }) {
   const [ingredient, setIngredient] = useState(null);
   const [brand, setBrand] = useState(null);
   const [name, setName] = useState(null);
+  const [category, setCategory] = useState(null);
 
   const axios = require("axios");
 
@@ -23,14 +24,19 @@ export default function ResultsScreen({ route, navigation }) {
       if ((res.data.status = 1)) {
         console.log(res.data.code);
         setResponse(res);
-        if ("ingredients_text" in res.data.product) {
-          setIngredient(" " + res.data.product.ingredients_text);
-        }
-        if ("brands" in res.data.product) {
-          setBrand(" " + res.data.product.brands);
-        }
-        if ("product_name" in res.data.product) {
-          setName(res.data.product.product_name);
+        if ("product" in res.data) {
+          if ("ingredients_text" in res.data.product) {
+            setIngredient(" " + res.data.product.ingredients_text);
+          }
+          if ("brands" in res.data.product) {
+            setBrand(" " + res.data.product.brands);
+          }
+          if ("product_name" in res.data.product) {
+            setName(res.data.product.product_name);
+          }
+          if ("categories" in res.data.product) {
+            setCategory(res.data.product.categories);
+          }
         }
       }
     }
@@ -45,7 +51,14 @@ export default function ResultsScreen({ route, navigation }) {
           {brand} {name}
         </Text>
       )}
-      {ingredient && <Text> {ingredient}</Text>}
+      {/* {category && <Text>{category}</Text>}
+      {ingredient && <Text> {ingredient}</Text>} */}
+      <Image
+        source={{
+          uri: "https://static.wikia.nocookie.net/silicon-valley/images/4/49/Jian_Yang.jpg/revision/latest?cb=20210105194213",
+        }}
+        style={{ width: 400, height: 400 }}
+      />
     </View>
   );
 }
