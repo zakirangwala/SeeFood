@@ -12,7 +12,7 @@ export default function CameraScreen(){
             headerShown: false
           }}
           >
-            <Stack.Screen name="Scanner" component={ScannerScreen} />
+            <Stack.Screen name="Camera" component={ScannerScreen} />
             <Stack.Screen name="Results" component={ResultsScreen} />
         </Stack.Navigator> 
     );
