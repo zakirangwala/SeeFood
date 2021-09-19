@@ -5,6 +5,9 @@ export default function ResultsScreen({ route, navigation }) {
   const { barcode } = route.params;
   const [response, setResponse] = useState(null);
   const [ingredient, setIngredient] = useState(null);
+  const [brand, setBrand] = useState(null);
+  const [name, setName] = useState(null);
+
   const axios = require("axios");
 
   useEffect(() => {
@@ -21,7 +24,13 @@ export default function ResultsScreen({ route, navigation }) {
         console.log(res.data.code);
         setResponse(res);
         if ("ingredients_text" in res.data.product) {
-          setIngredient(res.data.product.ingredients_text);
+          setIngredient(" " + res.data.product.ingredients_text);
+        }
+        if ("brands" in res.data.product) {
+          setBrand(" " + res.data.product.brands);
+        }
+        if ("product_name" in res.data.product) {
+          setName(res.data.product.product_name);
         }
       }
     }
@@ -33,10 +42,10 @@ export default function ResultsScreen({ route, navigation }) {
       <Text>{barcode}</Text>
       {response && (
         <Text>
-          {response.data.product.brands} {response.data.product.product_name}
+          {brand} {name}
         </Text>
       )}
-      {ingredient && <Text>{ingredient}</Text>}
+      {ingredient && <Text> {ingredient}</Text>}
     </View>
   );
 }
