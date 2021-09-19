@@ -1,4 +1,5 @@
 import logo from "./assets/qr_code.png";
+import ReactPlayer from "react-player";
 
 function App() {
   return (
@@ -16,21 +17,32 @@ function App() {
             fontSize: "72px",
             fontWeight: "bold",
             textAlign: "center",
-            paddingTop: "15%",
           }}
         >
           F👀D
         </div>
-        <img
-          style={{
-            display: "block",
-            paddingTop: "15px",
-            marginLeft: "auto",
-            marginRight: "auto",
-            width: "20%",
-          }}
-          src={logo}
-        />
+        <div>
+          <ReactPlayer
+            style={{
+              display: "block",
+              paddingTop: "15px",
+              marginLeft: "auto",
+              marginRight: "auto",
+              width: "20%",
+            }}
+            url="https://youtu.be/uFr9S9MtCoA"
+          />
+          <img
+            style={{
+              display: "block",
+              paddingTop: "15px",
+              marginLeft: "auto",
+              marginRight: "auto",
+              width: "20%",
+            }}
+            src={logo}
+          />
+        </div>
         <p
           style={{
             display: "block",
