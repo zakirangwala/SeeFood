@@ -32,17 +32,17 @@ How the App should work!
 ### Home Screen
 
 <p align="center">
-<img width="300" height="649" src="utils/home_page.png" alt="Home Page" >
+<img width="300" height="567" src="utils/home_page.png" alt="Home Page" >
 </p>
 
 ### Scan barcode of food item
 
 <p align="center">
-<img width="300" height="649" src="utils/scan_food.png" alt="Scan Page" >
+<img width="300" height="567" src="utils/scan_food.png" alt="Scan Page" >
 </p>
 
 ### Get Ingredients and Dietary Restrictions Information
 
 <p align="center">
-<img width="300" height="649" src="utils/result_page.png" alt="Result Page" >
+<img width="300" height="567" src="utils/result_page.png" alt="Result Page" >
 </p>
