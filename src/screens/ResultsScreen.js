@@ -1,5 +1,10 @@
 import React, { useEffect, useState } from "react";
 import { StyleSheet, Text, View, Image } from "react-native";
+import veganImg from '../../assets/vegan.png'; 
+import vegetarianImg from '../../assets/plant-based.png'; 
+import glutenFreeImg from '../../assets/gluten-free.png';
+import check from '../../assets/check.png';
+import cancel from '../../assets/cancel.png';
 
 export default function ResultsScreen({ route, navigation }) {
   const { barcode } = route.params;
@@ -57,7 +62,7 @@ export default function ResultsScreen({ route, navigation }) {
             }
           }
           if ("ingredients_text" in res.data.product) {
-            setIngredient(" " + res.data.product.ingredients_text);
+            setIngredient(res.data.product.ingredients_text.substring(0));
           }
           if ("brands" in res.data.product) {
             setBrand(" " + res.data.product.brands);
@@ -76,18 +81,45 @@ export default function ResultsScreen({ route, navigation }) {
 
   return (
     <View style={styles.container}>
-      <Text>{barcode}</Text>
       {response && (
-        <Text>
-          {brand} {name}
+        <Text style={styles.title}>
+          {name}
         </Text>
       )}
-      {/* {category && <Text>{category}</Text>} */}
-      {ingredient && <Text> {ingredient}</Text>}
 
-      {vegan && <Text> {vegan}</Text>}
-      {vegetarian && <Text> {vegetarian}</Text>}
-      {glutenFree && <Text> {glutenFree}</Text>}
+      <View style={styles.row}>
+        {vegan && 
+          <View style={styles.column}>
+            <Text style={styles.heading}>Vegan</Text>
+            <View style={styles.gap}></View>
+            <Image source={veganImg} style={{ width: 80, height: 80 }}/>
+            <View style={styles.gap2}></View>
+            {(vegan === "true")?<Image source={check} style={{ width: 30, height: 30 }}/>:<Image source={cancel} style={{ width: 30, height: 30 }}/>}
+          </View>}
+          {vegetarian && 
+          <View style={styles.column}>
+            <Text style={styles.heading}>Vegetarian</Text>
+            <View style={styles.gap}></View>
+            <Image source={vegetarianImg} style={{ width: 80, height: 80 }}/>
+            <View style={styles.gap2}></View>
+            {(vegetarian === "true")?<Image source={check} style={{ width: 30, height: 30 }}/>:<Image source={cancel} style={{ width: 30, height: 30 }}/>}
+          </View>}
+          {glutenFree && 
+          <View style={styles.column}>
+            <Text style={styles.heading}>Gluten-Free</Text>
+            <View style={styles.gap}></View>
+            <Image source={glutenFreeImg} style={{ width: 80, height: 80 }}/>
+            <View style={styles.gap2}></View>
+            {(glutenFree === "true")?<Image source={check} style={{ width: 30, height: 30 }}/>:<Image source={cancel} style={{ width: 30, height: 30 }}/>}
+          </View>}
+      </View>
+      
+
+      {/* {category && <Text>{category}</Text>} */}
+      {ingredient && <Text style={styles.title}> Ingredients </Text>}
+      {ingredient && <Text style={styles.paragraph}> {ingredient}</Text>}
+
+      
       {/* <Image
         source={{
           uri: "https://static.wikia.nocookie.net/silicon-valley/images/4/49/Jian_Yang.jpg/revision/latest?cb=20210105194213",
@@ -101,17 +133,41 @@ export default function ResultsScreen({ route, navigation }) {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    alignItems: "center",
-    justifyContent: "center",
+    paddingHorizontal: 35,
     backgroundColor: "white",
   },
-  camera: {
-    width: "100%",
-    height: "100%",
+  title: {
+    fontSize: 34,
+    fontWeight: 'bold',
+    color: 'black',
+    paddingTop:30,
+    paddingBottom: 15
   },
-  buttonContainer: {
-    marginTop: 40,
+  heading:{
+    fontSize: 18,
+    color: 'black',
+    fontWeight: 'bold',
   },
-  button: {},
-  text: {},
+  paragraph: {
+    fontSize: 14,
+    color: 'black',
+    fontWeight: 'normal',
+    flex: 1
+  },
+  row: {
+    flexDirection: 'row', 
+    justifyContent: "space-between", 
+    alignItems:"center",
+    paddingBottom: 10,
+  },
+  column:{
+    flexDirection:'column',
+    alignItems:'center'
+  },
+  gap:{
+    height:10
+  },
+  gap2:{
+    height:20
+  }
 });
