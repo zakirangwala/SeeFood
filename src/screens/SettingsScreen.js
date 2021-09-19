@@ -119,7 +119,8 @@ const styles = StyleSheet.create({
         fontWeight: 'bold',
         color: 'black',
         paddingTop: 30,
-        paddingBottom: 15
+        paddingBottom: 15,
+        textAlign: "center",
     },
     row: {
         flexDirection: 'row',

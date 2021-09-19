@@ -64,7 +64,7 @@ export default function ResultsScreen({ route, navigation }) {
             setIngredient(res.data.product.ingredients_text.substring(0));
           }
           if ("brands" in res.data.product) {
-            setBrand(" " + toTitleCase(res.data.product.brands.toString()));
+            setBrand(toTitleCase(res.data.product.brands.toString()) + " ");
           }
           if ("product_name" in res.data.product) {
             setName(toTitleCase(res.data.product.product_name.toString()));
@@ -86,7 +86,7 @@ export default function ResultsScreen({ route, navigation }) {
 
   return (
     <View style={styles.container}>
-      {response && <Text style={styles.title}>{name}</Text>}
+      {response && <Text style={styles.title}>{brand} {name}</Text>}
 
       <View style={styles.row}>
         {vegan && (
@@ -156,6 +156,7 @@ const styles = StyleSheet.create({
     color: "black",
     paddingTop: 30,
     paddingBottom: 15,
+    textAlign:"center",
   },
   heading: {
     fontSize: 18,
