@@ -16,9 +16,12 @@ export default function ResultsScreen({ route, navigation }) {
       );
       console.log(res.request);
       console.log(res.status);
+      if ((res.data.status = 1)) {
+        console.log(res.data.code);
+      }
       setResponse(res);
     }
-    fetchData(barcode)
+    fetchData(barcode);
   }, []);
 
   return (
@@ -29,6 +32,9 @@ export default function ResultsScreen({ route, navigation }) {
           {response.data.product.brands} {response.data.product.product_name}
         </Text>
       )}
+      {/* {response.data.product.ingredients_text && (
+        <Text>{response.data.product.ingredients_text}</Text>
+      )} */}
     </View>
   );
 }
