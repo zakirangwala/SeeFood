@@ -4,7 +4,7 @@
   <img src="utils/logo.png" alt="Logo">
 </p>
 
-By Albert Lai, Zaki Rangwala, and Aryaan Bhimani for Hack the North 2021.
+By Albert Lai, Zaki Rangwala, and Aryaan Bhimani for [Hack the North 2021](https://devpost.com/software/see-food-32bf6i).
 
 SeeFood is a game changing app that helps people better understand what they eat and follow their diet by providing useful information about food ingredients.
 
@@ -20,6 +20,7 @@ SeeFood is a game changing app that helps people better understand what they eat
 ## Demo Application
 
 Use the Expo Client App (Expo Go) and scan this QR code:
+
 <p align="center">
   <img width="250" height="250" src="utils/qr_code.png" alt="Expo Demo Code" >
 </p>
