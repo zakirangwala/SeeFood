@@ -4,6 +4,7 @@ import { StyleSheet, Text, View } from "react-native";
 export default function ResultsScreen({ route, navigation }) {
   const { barcode } = route.params;
   const [response, setResponse] = useState(null);
+  const [ingredient, setIngredient] = useState(null);
   const axios = require("axios");
 
   useEffect(() => {
@@ -18,8 +19,11 @@ export default function ResultsScreen({ route, navigation }) {
       console.log(res.status);
       if ((res.data.status = 1)) {
         console.log(res.data.code);
+        setResponse(res);
+        if ("ingredients_text" in res.data.product) {
+          setIngredient(res.data.product.ingredients_text);
+        }
       }
-      setResponse(res);
     }
     fetchData(barcode);
   }, []);
@@ -32,9 +36,7 @@ export default function ResultsScreen({ route, navigation }) {
           {response.data.product.brands} {response.data.product.product_name}
         </Text>
       )}
-      {/* {response.data.product.ingredients_text && (
-        <Text>{response.data.product.ingredients_text}</Text>
-      )} */}
+      {ingredient && <Text>{ingredient}</Text>}
     </View>
   );
 }
@@ -42,17 +44,17 @@ export default function ResultsScreen({ route, navigation }) {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    alignItems: 'center',
-    justifyContent: 'center',
-    backgroundColor: 'white',
+    alignItems: "center",
+    justifyContent: "center",
+    backgroundColor: "white",
   },
   camera: {
-    width: '100%',
-    height: '100%',
+    width: "100%",
+    height: "100%",
   },
-  buttonContainer:{
+  buttonContainer: {
     marginTop: 40,
   },
-  button:{},
-  text:{}
+  button: {},
+  text: {},
 });
