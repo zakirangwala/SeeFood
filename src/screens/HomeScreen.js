@@ -15,7 +15,7 @@ export default function HomeScreen(){
                 <Image source={vegan} style={{ width: 80, height: 80 }}/>
                 <View style={styles.gap}></View>
                 <Text style={styles.paragraph_right}>
-                  Set your diet and preferences in the settings
+                  Set your diet and preferences in the settings tab
                 </Text>
             </View>
             <View style={styles.row}>
