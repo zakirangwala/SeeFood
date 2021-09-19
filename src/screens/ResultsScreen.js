@@ -3,29 +3,32 @@ import { StyleSheet, Text, View } from "react-native";
 
 export default function ResultsScreen({ route, navigation }) {
   const { barcode } = route.params;
-  const [response, setResponse] = useState();
+  const [response, setResponse] = useState(null);
+  const axios = require("axios");
 
   useEffect(() => {
     async function fetchData(code) {
-      const axios = require("axios");
-      const url = `https://world.openfoodfacts.org/api/v0/product/${encodeURIComponent(
-        JSON.stringify(code)
-      )}`;
       console.log("Fetching Data from API...");
-      let res = await axios.get(url);
+      const res = await axios.get(
+        `https://world.openfoodfacts.org/api/v0/product/${encodeURIComponent(
+          JSON.stringify(barcode)
+        )}`
+      );
       console.log(res.request);
       console.log(res.status);
-      // setResponse(res);
+      setResponse(res);
     }
-    fetchData(barcode);
+    fetchData(barcode)
   }, []);
-
-  // console.log(response.data.status_verbose);
 
   return (
     <View style={{ flex: 1, alignItems: "center", justifyContent: "center" }}>
       <Text>{barcode}</Text>
-      {/* <Text>{response.data.product.brands}</Text> */}
+      {response && (
+        <Text>
+          {response.data.product.brands} {response.data.product.product_name}
+        </Text>
+      )}
     </View>
   );
 }
