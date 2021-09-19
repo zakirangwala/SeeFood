@@ -2,7 +2,9 @@ import { StatusBar } from 'expo-status-bar';
 import React, {useState,useEffect} from 'react';
 import { StyleSheet, Text, View, TouchableOpacity } from 'react-native';
 import { Camera } from 'expo-camera';
-import { Entypo } from '@expo/vector-icons';
+import { NavigationContainer } from '@react-navigation/native';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
+//import { Entypo } from '@expo/vector-icons';
 //import firebase from 'firebase/app';
 
 //firebase services
@@ -25,7 +27,10 @@ import { Entypo } from '@expo/vector-icons';
 
 //firebase.initializeApp(firebaseConfig);
 
-export default function App() {
+const Stack = createNativeStackNavigator();
+let barcode = "";
+
+function ScannerScreen({navigation}){
   //camera permissions
   const [hasPermission, setHasPermission] = useState(null);
   const [type, setType] = useState(Camera.Constants.Type.back);
@@ -48,7 +53,7 @@ export default function App() {
   return (
     <View style={styles.container}>
       <Camera style={styles.camera} type={type} onBarCodeScanned={(obj) => {
-        console.log(obj["data"]);
+        navigation.navigate('Results',{barcode: obj["data"]});
       }}>
       </Camera>
 {/* 
@@ -65,6 +70,26 @@ export default function App() {
         </View>
          */}
     </View>
+  );
+}
+
+function ResultsScreen({route,navigation}){
+  const { barcode } = route.params;
+  return (
+    <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
+      <Text>{barcode}</Text>
+    </View>
+  );
+}
+
+export default function App() {
+  return(
+    <NavigationContainer>
+      <Stack.Navigator initialRouteName="Scanner">
+        <Stack.Screen name="Scanner" component={ScannerScreen} />
+        <Stack.Screen name="Results" component={ResultsScreen} />
+      </Stack.Navigator>
+    </NavigationContainer>
   );
 }
 
