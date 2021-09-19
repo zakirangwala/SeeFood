@@ -8,9 +8,9 @@ const Stack = createNativeStackNavigator();
 export default function CameraScreen(){
     return(
         <Stack.Navigator initialRouteName="Scanner" 
-        // screenOptions={{
-        //     headerShown: false
-        //   }}
+        screenOptions={{
+            headerShown: false
+          }}
           >
             <Stack.Screen name="Scanner" component={ScannerScreen} />
             <Stack.Screen name="Results" component={ResultsScreen} />

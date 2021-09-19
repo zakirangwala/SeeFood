@@ -1,5 +1,6 @@
 import React from "react";
 import { StyleSheet, Text, View } from "react-native";
+import { StatusBar } from 'expo-status-bar';
 
 export default function HomeScreen(){
     return(
@@ -7,6 +8,7 @@ export default function HomeScreen(){
         <Text style={styles.paragraph}>
           Hello, world!
         </Text>
+        <StatusBar style="dark" />
       </View>
     );
 }

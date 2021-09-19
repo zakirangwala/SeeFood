@@ -1,4 +1,3 @@
-//import { StatusBar } from 'expo-status-bar';
 import React from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
@@ -44,7 +43,7 @@ export default function App() {
                 ? 'home'
                 : 'home-outline';
             }
-            else if (route.name === 'Camera') {
+            else if (route.name === 'Scanner') {
               iconName = focused
                 ? 'scan-circle'
                 : 'scan-circle-outline';
@@ -55,14 +54,15 @@ export default function App() {
 
             return <Ionicons name={iconName} size={35} color={color} />;
           },
-          tabBarActiveTintColor: 'tomato',
+          tabBarActiveTintColor: 'white',
           tabBarInactiveTintColor: 'gray',
-          headerShown: false,
+          headerTitleStyle: {fontSize: 25},
+          //headerShown: false,
           tabBarShowLabel: false,
-          tabBarStyle: {height: 100, alignItems: 'center'},
+          tabBarStyle: {height: 100, alignItems: 'center', backgroundColor: 'black'},
         })}>
         <Tab.Screen name="Home" component={HomeScreen} />
-        <Tab.Screen name="Camera" component={CameraScreen} />
+        <Tab.Screen name="Scanner" component={CameraScreen } />
         <Tab.Screen name="Settings" component={SettingsScreen} />
       </Tab.Navigator>
     </NavigationContainer>
