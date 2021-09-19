@@ -1,8 +1,7 @@
-import AsyncStorage from '@react-native-async-storage/async-storage';
-import React from 'react';
+import React from "react";
 import { StyleSheet, Text, View } from "react-native";
 
-export default function SettingsScreen({navigation}){
+export default function HomeScreen(){
     return(
         <View style={styles.container}>
         <Text style={styles.paragraph}>
@@ -10,9 +9,9 @@ export default function SettingsScreen({navigation}){
         </Text>
       </View>
     );
-  }
+}
 
-  const styles = StyleSheet.create({
+const styles = StyleSheet.create({
     container: {
       flex: 1,
       alignItems: 'center',
