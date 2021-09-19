@@ -25,7 +25,7 @@ export default function ResultsScreen({ route, navigation }) {
   }, []);
 
   return (
-    <View style={{ flex: 1, alignItems: "center", justifyContent: "center" }}>
+    <View style={styles.container}>
       <Text>{barcode}</Text>
       {response && (
         <Text>
@@ -38,3 +38,21 @@ export default function ResultsScreen({ route, navigation }) {
     </View>
   );
 }
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    alignItems: 'center',
+    justifyContent: 'center',
+    backgroundColor: 'white',
+  },
+  camera: {
+    width: '100%',
+    height: '100%',
+  },
+  buttonContainer:{
+    marginTop: 40,
+  },
+  button:{},
+  text:{}
+});
