@@ -13,6 +13,8 @@ export default function SettingsScreen({ navigation }) {
     let [restrictions, setRestrictions] = useState('');
     //const [extra, setExtra] = useState([]);
 
+    let lastTapped = "vegan";
+
     useEffect(() => {
         setRestrictions(getData('restrictions'));
         //setExtra(getData('extra'));
@@ -20,7 +22,6 @@ export default function SettingsScreen({ navigation }) {
 
 
     useEffect(() => {
-        console.log(restrictions);
         setData('restrictions', restrictions);
     }, [restrictions]);
 
@@ -46,9 +47,11 @@ export default function SettingsScreen({ navigation }) {
 
     const buttonOnPress = (value, add) => {
         if (add) {
+            lastTapped = value;
             setRestrictions(restrictions.concat([value]));
         }
         else {
+            lastTapped = value;
             setRestrictions(restrictions.filter(val => val != value));
         }
     }
@@ -69,11 +72,16 @@ export default function SettingsScreen({ navigation }) {
                 {((restrictions.includes("glutenFree")) ?
                     <TouchableOpacity onPress={() => buttonOnPress('glutenFree', 0)}><Image source={glutenFree} style={{ width: 80, height: 80 }} /></TouchableOpacity> :
                     <TouchableOpacity onPress={() => buttonOnPress('glutenFree', 1)}><Image source={nonGlutenFree} style={{ width: 80, height: 80 }} /></TouchableOpacity>)}
-
+            </View>
+            {/* <View style={styles.desc}>
+                <Text style={styles.paragraph}>Description</Text>
+                {(lastTapped === 'vegan') ? <Text>A vegan diet involves eating only foods comprising plants. Those who follow this diet avoid all animal products, including meat, dairy, and eggs.</Text> :
+                    ((lastTapped == 'vegetarian') ? <Text>The vegetarian diet involves abstaining from eating meat, fish and poultry, but may continue to eat eggs and dairy products.</Text> :
+                        <Text>A gluten-free diet is an eating plan that excludes foods containing gluten, a protein found in wheat, barley, rye and triticale.</Text>)}
             </View>
             <Text style={styles.title}>
                 Extra Dietary Restrictions:
-            </Text>
+            </Text> */}
         </View>
     );
 }
@@ -82,7 +90,6 @@ const styles = StyleSheet.create({
     container: {
         flex: 1,
         paddingHorizontal: 35,
-        alignItems: 'flex-start',
         justifyContent: 'flex-start',
         backgroundColor: '#ffffff',
     },
@@ -105,6 +112,10 @@ const styles = StyleSheet.create({
         fontSize: 18,
         fontWeight: 'bold',
         textAlign: 'center',
-        color: '#34495e',
+        color: 'black',
+    },
+    desc: {
+        borderRadius: 5,
+        borderWidth: 1
     }
 });
